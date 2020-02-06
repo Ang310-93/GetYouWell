@@ -10,8 +10,17 @@ import SwiftUI
 
 struct StartChallengeView: View {
     var body: some View {
-        Text("Qui ci sara la sfida!")
+        VStack{
+            Text("Scegli tra diversi tipi di sfida!")
+            
+            NavigationLink(destination: SfidaPercorsoView()){
+                Text("Sfida percorso")
+            }
+            NavigationLink(destination: SfidaFisicaView()){
+                           Text("Sfida fisica")
+                       }
     }
+}
 }
 
 struct StartChallengeView_Previews: PreviewProvider {
