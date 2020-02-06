@@ -9,12 +9,18 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        NavigationLink(destination: SettingDayView()){
-            Text("Avanti")
-        }
+        ScrollView{
+            VStack{
+                NavigationLink(destination: SettingDayView()){
+                    Text("Imposta giorni")
+                }.padding()
+                NavigationLink(destination: StartChallengeView()){
+                    Text("Inizia")
+                }.padding()
+            }
         }
     }
-
+}
 
     struct ContentView_Previews: PreviewProvider {
         static var previews: some View {
