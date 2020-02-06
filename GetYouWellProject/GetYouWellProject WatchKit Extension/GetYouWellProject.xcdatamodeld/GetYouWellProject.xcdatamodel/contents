@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="19D76" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Orario" representedClassName="Orario" syncable="YES" codeGenerationType="class">
+        <attribute name="mattina" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="pomeriggio" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="sera" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="Settimana" representedClassName="Settimana" syncable="YES" codeGenerationType="class">
+        <attribute name="domenica" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="giovedi" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="lunedi" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="martedi" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="mercoledi" optional="YES" attributeType="Boolean" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="sabato" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="venerdi" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+    </entity>
+    <elements>
+        <element name="Settimana" positionX="-63" positionY="-18" width="128" height="148"/>
+        <element name="Orario" positionX="-54" positionY="45" width="128" height="88"/>
+    </elements>
+</model>
