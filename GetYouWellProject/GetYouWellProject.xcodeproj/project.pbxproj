@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2CCDD4BC23ED827800D90090 /* ImpostaziniView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDD4BB23ED827800D90090 /* ImpostaziniView.swift */; };
 		5EE1466923EC4F7D000C3862 /* GetYouWellProject WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 5EE1466823EC4F7D000C3862 /* GetYouWellProject WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5EE1466F23EC4F7D000C3862 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EE1466D23EC4F7D000C3862 /* Interface.storyboard */; };
 		5EE1467123EC4F7D000C3862 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EE1467023EC4F7D000C3862 /* Assets.xcassets */; };
@@ -72,6 +73,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2CCDD4BB23ED827800D90090 /* ImpostaziniView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpostaziniView.swift; sourceTree = "<group>"; };
 		5EE1466423EC4F7D000C3862 /* GetYouWellProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GetYouWellProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EE1466823EC4F7D000C3862 /* GetYouWellProject WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GetYouWellProject WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EE1466E23EC4F7D000C3862 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
@@ -147,10 +149,11 @@
 				5EE146AB23EC8F4B000C3862 /* GetYouWellProject WatchKit Extension.entitlements */,
 				5EE1467C23EC4F7D000C3862 /* ContentView.swift */,
 				5EE146A723EC8D7B000C3862 /* SfidaPercorsoView.swift */,
+				2CCDD4BB23ED827800D90090 /* ImpostaziniView.swift */,
 				5EE1469A23EC5000000C3862 /* SettingDayView.swift */,
+				5EE1469C23EC5013000C3862 /* OrarioView.swift */,
 				5EE146A523EC585D000C3862 /* StartChallengeView.swift */,
 				5EE146A923EC8E1B000C3862 /* SfidaFisicaView.swift */,
-				5EE1469C23EC5013000C3862 /* OrarioView.swift */,
 				5EE1467E23EC4F7D000C3862 /* HostingController.swift */,
 				5EE1468023EC4F7D000C3862 /* ExtensionDelegate.swift */,
 				5EE1468223EC4F7D000C3862 /* NotificationController.swift */,
@@ -316,6 +319,7 @@
 				5EE146A623EC585D000C3862 /* StartChallengeView.swift in Sources */,
 				5EE146A423EC510E000C3862 /* Orario.swift in Sources */,
 				5EE1467D23EC4F7D000C3862 /* ContentView.swift in Sources */,
+				2CCDD4BC23ED827800D90090 /* ImpostaziniView.swift in Sources */,
 				5EE1468323EC4F7D000C3862 /* NotificationController.swift in Sources */,
 				5EE1468123EC4F7D000C3862 /* ExtensionDelegate.swift in Sources */,
 				5EE146AA23EC8E1B000C3862 /* SfidaFisicaView.swift in Sources */,

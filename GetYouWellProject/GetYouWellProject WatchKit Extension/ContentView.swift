@@ -10,21 +10,32 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         ScrollView{
-            VStack{
-                NavigationLink(destination: SettingDayView()){
-                    Text("Imposta giorni")
+            VStack(spacing: -10){
+                Image("logo")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 100, height: 100)
+                    .padding(20)
+                NavigationLink(destination: ImpostaziniView()){
+                    Text("Imposta giorni" .uppercased())
+                        .foregroundColor(Color(.sRGB, red: 243/255, green: 145/255, blue: 0/255))
+                        .font(.custom("Avenir", size: 15))
+                        .fontWeight(.bold)
                 }.padding()
                 NavigationLink(destination: StartChallengeView()){
-                    Text("Inizia")
+                    Text("Inizia" .uppercased())
+                        .foregroundColor(Color(.sRGB, red: 243/255, green: 145/255, blue: 0/255))
+                        .font(.custom("Avenir", size: 15))
+                        .fontWeight(.bold)
                 }.padding()
             }
         }
     }
 }
 
-    struct ContentView_Previews: PreviewProvider {
-        static var previews: some View {
-            ContentView()
-        }
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
     }
+}
 
