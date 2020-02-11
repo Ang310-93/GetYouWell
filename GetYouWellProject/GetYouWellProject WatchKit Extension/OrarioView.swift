@@ -9,6 +9,13 @@
 import SwiftUI
 import UserNotifications
 
+struct OrarioView_Previews: PreviewProvider {
+    static var previews: some View {
+        OrarioView()
+    }
+}
+
+
 struct OrarioView: View {
     var managedObjectContext = (WKExtension.shared().delegate as! ExtensionDelegate).persistentContainer.viewContext
     
@@ -37,11 +44,13 @@ struct SubOrarioView: View {
                         .fontWeight(.bold)
                         .padding()
                         .padding(.top, -10)
+                      .padding(.leading, -7)
 
                     Text("Scegli una fascia oraria:")
                         .font(.custom("Avenir", size: 15))
                         .padding()
                         .padding(.top, -10)
+                      .padding(.leading, -7)
                 }
             }
             VStack{
@@ -125,15 +134,15 @@ struct SubOrarioView: View {
                         print(formattedDate)
                         print(calendar.component(.weekdayOrdinal, from: date))
                         var dateComponentsMattina = DateComponents()
-                        dateComponentsMattina.hour = 11
-                        dateComponentsMattina.minute = 39
+                        dateComponentsMattina.hour = 10
+                        dateComponentsMattina.minute = 30
                         var dateComponentsPome = DateComponents()
-                        dateComponentsPome.hour = 11
-                        dateComponentsPome.minute = 39
+                        dateComponentsPome.hour = 14
+                        dateComponentsPome.minute = 30
 
                         var dateComponentsSera = DateComponents()
-                        dateComponentsSera.hour = 11
-                        dateComponentsSera.minute = 39
+                        dateComponentsSera.hour = 17
+                        dateComponentsSera.minute = 30
 
 
                         if self.orario.first?.mattina ?? false{
@@ -315,6 +324,7 @@ struct SubOrarioView: View {
                 //                        .fontWeight(.black)
                 //                }
             }
+        .padding()
         }
     }
 }

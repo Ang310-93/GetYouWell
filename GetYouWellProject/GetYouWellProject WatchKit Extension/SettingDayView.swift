@@ -7,6 +7,12 @@
 //
 
 import SwiftUI
+struct SettingDayView_Previews: PreviewProvider {
+    static var previews: some View {
+        SettingDayView()
+    }
+}
+
 
 struct SettingDayView: View {
     var managedObjectContext = (WKExtension.shared().delegate as! ExtensionDelegate).persistentContainer.viewContext
@@ -35,11 +41,13 @@ struct SubSettingDayView: View {
                         .fontWeight(.bold)
                     .padding()
                     .padding(.top, -10)
+                        .padding(.leading, -50)
 
                     Text("Scegli i giorni:")
                         .font(.custom("Avenir", size: 15))
                     .padding()
                     .padding(.top, -10)
+                    .padding(.leading, -50)
 
                 }
             }
