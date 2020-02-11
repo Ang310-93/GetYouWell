@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import UserNotifications
 
 struct OrarioView: View {
     var managedObjectContext = (WKExtension.shared().delegate as! ExtensionDelegate).persistentContainer.viewContext
@@ -18,11 +19,15 @@ struct OrarioView: View {
 struct SubOrarioView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @FetchRequest(entity: Orario.entity(),sortDescriptors: [NSSortDescriptor(keyPath: \Orario.mattina, ascending: true)]) var orario : FetchedResults<Orario>
+    @FetchRequest(entity: Settimana.entity(),sortDescriptors: [NSSortDescriptor(keyPath: \Settimana.lunedi, ascending: true)]) var giorni : FetchedResults<Settimana>
     
+     @State var alert = false
+
+
     var body: some View {
         
         //// COMMENTA DA QUI --->
-        
+
         ScrollView{
             HStack{
                 VStack(alignment: .leading){
@@ -32,7 +37,7 @@ struct SubOrarioView: View {
                         .fontWeight(.bold)
                         .padding()
                         .padding(.top, -10)
-                    
+
                     Text("Scegli una fascia oraria:")
                         .font(.custom("Avenir", size: 15))
                         .padding()
@@ -89,11 +94,208 @@ struct SubOrarioView: View {
                     }
                 }
                 Button(action: {
+
                     do{
                         try self.managedObjectContext.save()
                     }catch{
                         print("Errore")
                     }
+                    
+                    UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {
+                    (status, _) in
+                    if status{
+                        let contentM = UNMutableNotificationContent()
+                        contentM.title = "SFIDA DEL GIORNO\n"
+                        contentM.body = "\nLa tua sfida\ngiornaliera è pronta,\ninizia ora!"
+                        
+                        let contentP = UNMutableNotificationContent()
+                        contentP.title = "SFIDA DEL GIORNO\n"
+                        contentP.body = "\nLa tua sfida\ngiornaliera è pronta,\ninizia ora!"
+
+                        let contentS = UNMutableNotificationContent()
+                        contentS.title = "SFIDA DEL GIORNO\n"
+                        contentS.body = "\nLa tua sfida\ngiornaliera è pronta,\ninizia ora!"
+
+                        let date = Date()
+                        let format = DateFormatter()
+                        format.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                        let formattedDate = format.string(from: date)
+                        let calendar = Calendar.current
+//                        calendar.component(.day, from: date)
+                        print(formattedDate)
+                        print(calendar.component(.weekdayOrdinal, from: date))
+                        var dateComponentsMattina = DateComponents()
+                        dateComponentsMattina.hour = 11
+                        dateComponentsMattina.minute = 39
+                        var dateComponentsPome = DateComponents()
+                        dateComponentsPome.hour = 11
+                        dateComponentsPome.minute = 39
+
+                        var dateComponentsSera = DateComponents()
+                        dateComponentsSera.hour = 11
+                        dateComponentsSera.minute = 39
+
+
+                        if self.orario.first?.mattina ?? false{
+                            if self.giorni.first?.lunedi ?? false{
+                                if calendar.component(.weekdayOrdinal, from: date) == 1{
+                                    let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponentsMattina, repeats: true)
+                                    let request = UNNotificationRequest(identifier: "noti", content: contentM, trigger: trigger)
+                                    UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+                                }
+                            }
+                            
+                            if self.giorni.first?.martedi ?? false{
+                                if calendar.component(.weekdayOrdinal, from: date) == 2{
+                                    let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponentsMattina, repeats: true)
+                                    let request = UNNotificationRequest(identifier: "noti", content: contentM, trigger: trigger)
+                                    UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+                                }
+                            }
+                            if self.giorni.first?.mercoledi ?? false{
+                                if calendar.component(.weekdayOrdinal, from: date) == 3{
+                                    let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponentsMattina, repeats: true)
+                                    let request = UNNotificationRequest(identifier: "noti", content: contentM, trigger: trigger)
+                                    UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+                                }
+                            }
+                            if self.giorni.first?.giovedi ?? false{
+                                if calendar.component(.weekdayOrdinal, from: date) == 4{
+                                    let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponentsMattina, repeats: true)
+                                    let request = UNNotificationRequest(identifier: "noti", content: contentM, trigger: trigger)
+                                    UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+                                }
+                            }
+                            if self.giorni.first?.venerdi ?? false{
+                                if calendar.component(.weekdayOrdinal, from: date) == 5{
+                                    let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponentsMattina, repeats: true)
+                                    let request = UNNotificationRequest(identifier: "noti", content: contentM, trigger: trigger)
+                                    UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+                                }
+                            }
+                            if self.giorni.first?.sabato ?? false{
+                                if calendar.component(.weekdayOrdinal, from: date) == 6{
+                                    let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponentsMattina, repeats: true)
+                                    let request = UNNotificationRequest(identifier: "noti", content: contentM, trigger: trigger)
+                                    UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+                                }
+                            }
+                            if self.giorni.first?.domenica ?? false{
+                                if calendar.component(.weekdayOrdinal, from: date) == 0{
+                                    let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponentsMattina, repeats: true)
+                                    let request = UNNotificationRequest(identifier: "noti", content: contentM, trigger: trigger)
+                                    UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+                                }
+                            }
+                        }
+
+                        if self.orario.first?.pomeriggio ?? false{
+                            if self.giorni.first?.lunedi ?? false{
+                                if calendar.component(.weekdayOrdinal, from: date) == 1{
+                                    let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponentsPome, repeats: true)
+                                    let request = UNNotificationRequest(identifier: "notiP", content: contentP, trigger: trigger)
+                                    UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+                                }
+                            }
+                                if self.giorni.first?.martedi ?? false{
+                                    if calendar.component(.weekdayOrdinal, from: date) == 2{
+                                        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponentsPome, repeats: true)
+                                        let request = UNNotificationRequest(identifier: "notiP", content: contentP, trigger: trigger)
+                                        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+                                    }
+                            }
+                                    if self.giorni.first?.mercoledi ?? false{
+                                        if calendar.component(.weekdayOrdinal, from: date) == 3{
+                                            let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponentsPome, repeats: true)
+                                            let request = UNNotificationRequest(identifier: "notiP", content: contentP, trigger: trigger)
+                                            UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+                                        }
+                            }
+                                        if self.giorni.first?.giovedi ?? false{
+                                            if calendar.component(.weekdayOrdinal, from: date) == 4{
+                                                let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponentsPome, repeats: true)
+                                                let request = UNNotificationRequest(identifier: "notiP", content: contentP, trigger: trigger)
+                                                UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+                                            }
+                            }
+                                            if self.giorni.first?.venerdi ?? false{
+                                                if calendar.component(.weekdayOrdinal, from: date) == 5{
+                                                    let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponentsPome, repeats: true)
+                                                    let request = UNNotificationRequest(identifier: "notiP", content: contentP, trigger: trigger)
+                                                    UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+                                                }
+                            }
+                                                if self.giorni.first?.sabato ?? false{
+                                                    if calendar.component(.weekdayOrdinal, from: date) == 6{
+                                                        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponentsPome, repeats: true)
+                                                        let request = UNNotificationRequest(identifier: "notiP", content: contentP, trigger: trigger)
+                                                        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+                                                    }
+                            }
+                                                    if self.giorni.first?.domenica ?? false{
+                                                        if calendar.component(.weekdayOrdinal, from: date) == 0{
+                                                            let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponentsPome, repeats: true)
+                                                            let request = UNNotificationRequest(identifier: "notiP", content: contentP, trigger: trigger)
+                                                            UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+                                                        }
+                                                    }
+                                                }
+                        if self.orario.first?.sera ?? false{
+                            if self.giorni.first?.lunedi ?? false{
+                                if calendar.component(.weekdayOrdinal, from: date) == 1{
+                                    let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponentsSera, repeats: true)
+                                    let request = UNNotificationRequest(identifier: "notiS", content: contentS, trigger: trigger)
+                                    UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+                                }
+                            }
+                       
+                            if self.giorni.first?.martedi ?? false{
+                                if calendar.component(.weekdayOrdinal, from: date) == 2{
+                                    let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponentsSera, repeats: true)
+                                    let request = UNNotificationRequest(identifier: "notiS", content: contentS, trigger: trigger)
+                                    UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+                                }
+                            }
+                            if self.giorni.first?.mercoledi ?? false{
+                                if calendar.component(.weekdayOrdinal, from: date) == 3{
+                                    let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponentsSera, repeats: true)
+                                    let request = UNNotificationRequest(identifier: "notiS", content: contentS, trigger: trigger)
+                                    UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+                                }
+                            }
+                            if self.giorni.first?.giovedi ?? false{
+                                if calendar.component(.weekdayOrdinal, from: date) == 4{
+                                    let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponentsSera, repeats: true)
+                                    let request = UNNotificationRequest(identifier: "notiS", content: contentS, trigger: trigger)
+                                    UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+                                }
+                            }
+                            if self.giorni.first?.venerdi ?? false{
+                                if calendar.component(.weekdayOrdinal, from: date) == 5{
+                                    let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponentsSera, repeats: true)
+                                    let request = UNNotificationRequest(identifier: "notiS", content: contentS, trigger: trigger)
+                                    UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+                                }
+                            }
+                            if self.giorni.first?.sabato ?? false{
+                                if calendar.component(.weekdayOrdinal, from: date) == 6{
+                                    let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponentsSera, repeats: true)
+                                    let request = UNNotificationRequest(identifier: "notiS", content: contentS, trigger: trigger)
+                                    UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+                                }
+                            }
+                            if self.giorni.first?.domenica ?? false{
+                                if calendar.component(.weekdayOrdinal, from: date) == 0{
+                                    let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponentsSera, repeats: true)
+                                    let request = UNNotificationRequest(identifier: "notiS", content: contentS, trigger: trigger)
+                                    UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+                                }
+                            }
+                        }
+                    }
+//                        self.alert.toggle()
+                    }
+
                 }) {
                     Text("Salva" .uppercased())
                         .foregroundColor(Color(.sRGB, red: 34/255, green: 34/255, blue: 35/255))
@@ -102,7 +304,10 @@ struct SubOrarioView: View {
                 } .background(Color(.sRGB, red: 243/255, green: 145/255, blue: 0/255))
                     .cornerRadius(7)
                     .padding(.top, 10)
-                
+                .alert(isPresented: $alert) {
+                    return Alert(title: Text("Per Favore Attiva le notifiche"))
+                }
+
                 //                NavigationLink(destination: ContentView()){
                 //                    Text("Inizia" .uppercased())
                 //                    .foregroundColor(Color(.sRGB, red: 243/255, green: 145/255, blue: 0/255))

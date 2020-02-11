@@ -26,7 +26,7 @@ struct SubSettingDayView: View {
         
         
         ScrollView{
-            
+
             HStack{
                 VStack(alignment: .leading){
                     Text("GET YOU WELL")
@@ -35,12 +35,12 @@ struct SubSettingDayView: View {
                         .fontWeight(.bold)
                     .padding()
                     .padding(.top, -10)
-                    
+
                     Text("Scegli i giorni:")
                         .font(.custom("Avenir", size: 15))
                     .padding()
                     .padding(.top, -10)
-                    
+
                 }
             }
             VStack(spacing: -10){
@@ -51,26 +51,26 @@ struct SubSettingDayView: View {
                         }else{
                             self.giorni.first?.lunedi = true
                         }
-                        
+
                     })  {
                         if self.giorni.first?.lunedi ?? false{
                             Text(self.sett[0])
                                 .foregroundColor(Color(.sRGB, red: 243/255, green: 145/255, blue: 0/255))
                                 .font(.custom("Avenir", size: 17))
-                            
+
                         }else{
                             Text(self.sett[0])
                                 .font(.custom("Avenir", size: 17))
                         }
                     }
-                    
+
                     Button(action: {
                         if self.giorni.first?.martedi ?? false{
                             self.giorni.first?.martedi = false
                         }else{
                             self.giorni.first?.martedi = true
                         }
-                        
+
                     }) {
                         if self.giorni.first?.martedi ?? false{
                             Text(self.sett[1])
@@ -116,7 +116,7 @@ struct SubSettingDayView: View {
                                 .font(.custom("Avenir", size: 17))
                         }
                     }
-        
+
                     Button(action: {
                         if self.giorni.first?.venerdi ?? false{
                             self.giorni.first?.venerdi = false
@@ -133,7 +133,7 @@ struct SubSettingDayView: View {
                                 .font(.custom("Avenir", size: 17))
                         }
                     }
-                    
+
                     Button(action: {
                         if self.giorni.first?.sabato ?? false{
                             self.giorni.first?.sabato = false
@@ -150,7 +150,7 @@ struct SubSettingDayView: View {
                                 .font(.custom("Avenir", size: 17))
                         }
                     }
-                   
+
                 }.padding()
                 HStack{
                     Button(action: {
@@ -169,7 +169,7 @@ struct SubSettingDayView: View {
                                 .font(.custom("Avenir", size: 17))
                         }
                     }
-            
+
                     Button(action: {
                         self.giorni.first?.lunedi = true
                         self.giorni.first?.martedi = true
@@ -186,7 +186,7 @@ struct SubSettingDayView: View {
                         }else{
                             Text("Tutti")
                                 .font(.custom("Avenir", size: 17))
-                            
+
                         }
                     }
                 }.padding()
@@ -196,10 +196,10 @@ struct SubSettingDayView: View {
                     }catch{
                         print("Errore")
                     }
-            
+
                 }) {
                     Text("Salva" .uppercased())
-                        
+
                         .foregroundColor(Color(.sRGB, red: 34/255, green: 34/255, blue: 35/255))
                         .font(.custom("Avenir", size: 17))
                         .fontWeight(.black)
@@ -217,7 +217,7 @@ struct SubSettingDayView: View {
         }
     }
 }
-//
+
 ////  <--FINO A QUI
 //
 //
