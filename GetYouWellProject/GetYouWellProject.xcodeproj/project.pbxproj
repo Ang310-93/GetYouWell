@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2CCDD4BC23ED827800D90090 /* ImpostaziniView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDD4BB23ED827800D90090 /* ImpostaziniView.swift */; };
+		5EB698E523F3F1450047FF8C /* ChallengeStartedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB698E423F3F1450047FF8C /* ChallengeStartedView.swift */; };
 		5EE1466923EC4F7D000C3862 /* GetYouWellProject WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 5EE1466823EC4F7D000C3862 /* GetYouWellProject WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5EE1466F23EC4F7D000C3862 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EE1466D23EC4F7D000C3862 /* Interface.storyboard */; };
 		5EE1467123EC4F7D000C3862 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EE1467023EC4F7D000C3862 /* Assets.xcassets */; };
@@ -74,6 +75,7 @@
 
 /* Begin PBXFileReference section */
 		2CCDD4BB23ED827800D90090 /* ImpostaziniView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpostaziniView.swift; sourceTree = "<group>"; };
+		5EB698E423F3F1450047FF8C /* ChallengeStartedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeStartedView.swift; sourceTree = "<group>"; };
 		5EE1466423EC4F7D000C3862 /* GetYouWellProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GetYouWellProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EE1466823EC4F7D000C3862 /* GetYouWellProject WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GetYouWellProject WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EE1466E23EC4F7D000C3862 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				5EE146AB23EC8F4B000C3862 /* GetYouWellProject WatchKit Extension.entitlements */,
 				5EE1467C23EC4F7D000C3862 /* ContentView.swift */,
 				5EE146A723EC8D7B000C3862 /* SfidaPercorsoView.swift */,
+				5EB698E423F3F1450047FF8C /* ChallengeStartedView.swift */,
 				2CCDD4BB23ED827800D90090 /* ImpostaziniView.swift */,
 				5EE1469A23EC5000000C3862 /* SettingDayView.swift */,
 				5EE1469C23EC5013000C3862 /* OrarioView.swift */,
@@ -315,6 +318,7 @@
 			files = (
 				5EE146A223EC50FD000C3862 /* Settimana.swift in Sources */,
 				5EE1467F23EC4F7D000C3862 /* HostingController.swift in Sources */,
+				5EB698E523F3F1450047FF8C /* ChallengeStartedView.swift in Sources */,
 				5EE1469D23EC5013000C3862 /* OrarioView.swift in Sources */,
 				5EE146A623EC585D000C3862 /* StartChallengeView.swift in Sources */,
 				5EE146A423EC510E000C3862 /* Orario.swift in Sources */,
@@ -476,7 +480,7 @@
 				CODE_SIGN_ENTITLEMENTS = "GetYouWellProject WatchKit Extension/GetYouWellProject WatchKit Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"GetYouWellProject WatchKit Extension/Preview Content\"";
-				DEVELOPMENT_TEAM = GCQPAQXQ33;
+				DEVELOPMENT_TEAM = L7QUSA5FMA;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "GetYouWellProject WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -501,7 +505,7 @@
 				CODE_SIGN_ENTITLEMENTS = "GetYouWellProject WatchKit Extension/GetYouWellProject WatchKit Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"GetYouWellProject WatchKit Extension/Preview Content\"";
-				DEVELOPMENT_TEAM = GCQPAQXQ33;
+				DEVELOPMENT_TEAM = L7QUSA5FMA;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "GetYouWellProject WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -525,7 +529,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GCQPAQXQ33;
+				DEVELOPMENT_TEAM = L7QUSA5FMA;
 				IBSC_MODULE = GetYouWellProject_WatchKit_Extension;
 				INFOPLIST_FILE = "GetYouWellProject WatchKit App/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = Ang310.GetYouWellProject.watchkitapp;
@@ -544,7 +548,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GCQPAQXQ33;
+				DEVELOPMENT_TEAM = L7QUSA5FMA;
 				IBSC_MODULE = GetYouWellProject_WatchKit_Extension;
 				INFOPLIST_FILE = "GetYouWellProject WatchKit App/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = Ang310.GetYouWellProject.watchkitapp;
@@ -562,7 +566,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = GCQPAQXQ33;
+				DEVELOPMENT_TEAM = L7QUSA5FMA;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Ang310.GetYouWellProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -575,7 +579,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = GCQPAQXQ33;
+				DEVELOPMENT_TEAM = L7QUSA5FMA;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Ang310.GetYouWellProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";

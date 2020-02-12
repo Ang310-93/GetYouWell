@@ -8,10 +8,24 @@
 
 import WatchKit
 import CoreData
+import  HealthKit
 
 class ExtensionDelegate: NSObject, WKExtensionDelegate {
 
     func applicationDidFinishLaunching() {
+        let healthStore = HKHealthStore()
+        if HKHealthStore.isHealthDataAvailable() {
+            let heartRate = Set([HKObjectType.quantityType(forIdentifier: .heartRate)!])
+            healthStore.requestAuthorization(toShare: heartRate, read: heartRate) { (success, error) in
+                if !success{
+                    print("Errore")
+                }
+            }
+            // Perform any final initialization of your application.
+        }else{
+            print("Health Data non è disponibile")
+        }
+        
         // Perform any final initialization of your application.
     }
 

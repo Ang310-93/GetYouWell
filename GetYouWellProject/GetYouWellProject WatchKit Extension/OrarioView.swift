@@ -109,14 +109,14 @@ struct SubOrarioView: View {
                     }catch{
                         print("Errore")
                     }
-                    
+
                     UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {
                     (status, _) in
                     if status{
                         let contentM = UNMutableNotificationContent()
                         contentM.title = "SFIDA DEL GIORNO\n"
                         contentM.body = "\nLa tua sfida\ngiornaliera è pronta,\ninizia ora!"
-                        
+
                         let contentP = UNMutableNotificationContent()
                         contentP.title = "SFIDA DEL GIORNO\n"
                         contentP.body = "\nLa tua sfida\ngiornaliera è pronta,\ninizia ora!"
@@ -153,7 +153,7 @@ struct SubOrarioView: View {
                                     UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
                                 }
                             }
-                            
+
                             if self.giorni.first?.martedi ?? false{
                                 if calendar.component(.weekdayOrdinal, from: date) == 2{
                                     let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponentsMattina, repeats: true)
@@ -257,7 +257,7 @@ struct SubOrarioView: View {
                                     UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
                                 }
                             }
-                       
+
                             if self.giorni.first?.martedi ?? false{
                                 if calendar.component(.weekdayOrdinal, from: date) == 2{
                                     let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponentsSera, repeats: true)
@@ -316,22 +316,15 @@ struct SubOrarioView: View {
                 .alert(isPresented: $alert) {
                     return Alert(title: Text("Per Favore Attiva le notifiche"))
                 }
-
-                //                NavigationLink(destination: ContentView()){
-                //                    Text("Inizia" .uppercased())
-                //                    .foregroundColor(Color(.sRGB, red: 243/255, green: 145/255, blue: 0/255))
-                //                    .font(.custom("Avenir", size: 17))
-                //                        .fontWeight(.black)
-                //                }
             }
         .padding()
         }
     }
 }
-
-//  <--FINO A QUI
-
-
+//
+////  <--FINO A QUI
+//
+//
 // LA PRIMA VOLTA CHE AVVII L'APP UTILIZZA QUESTO CODICE INVECE DELL'ALTRO PER CREARE UN FILE IN COREDATA, DEVI COMMENTARE TUTTO IL CODICE CHE TI INDICO E DECOMMENTARE QUELLO CHE SEGUE. CLICCA SUI TASTI "SALVA" UNA SOLA VOLTA, NON SBAGLIARE! UNA VOLTA FINITO CHIUDI E RIMETTI IL CODICE COME STAVA.
 //        VStack{
 //

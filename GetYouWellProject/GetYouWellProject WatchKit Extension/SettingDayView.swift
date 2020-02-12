@@ -29,7 +29,7 @@ struct SubSettingDayView: View {
     var body: some View {
         
         //// COMMENTA DA QUI -->
-        
+//        
         
         ScrollView{
 
@@ -215,12 +215,6 @@ struct SubSettingDayView: View {
                 .background (Color(.sRGB, red: 243/255, green: 145/255, blue: 0/255))
             .cornerRadius(7)
                 .padding()
-//                NavigationLink(destination: OrarioView()){
-//                    Text("Continua" .uppercased())
-//                        .foregroundColor(Color(.sRGB, red: 243/255, green: 145/255, blue: 0/255))
-//                        .font(.custom("Avenir", size: 17))
-//                        .fontWeight(.black)
-//                }.padding()
             }
         }
     }
