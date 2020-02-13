@@ -24,36 +24,38 @@ struct ChallengeStartedView: View {
     
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
+    //    @State var isPlaying = false
+    
     var body: some View {
         VStack{
             PagerManager(pageCount: 2, currentIndex: $currentPage) {
                 VStack{
                     HStack{
                         Text("\(minutiRimantenti) : \(secondiRim)")
-                        .fontWeight(.regular)
-                        .font(.system(size: 30))
-                        .multilineTextAlignment(.leading)
+                            .fontWeight(.regular)
+                            .font(.system(size: 30))
+                            .multilineTextAlignment(.leading)
                             .padding()
-                        .onReceive(timer) { _ in
-                            if !self.pause{
-                            if self.minutiRimantenti < 15{
-                                if self.secondiRim == 59 {
-                                    self.minutiRimantenti = self.minutiRimantenti + 1
-                                    self.secondiRim = 0
-                                }else{
-                                    self.secondiRim = self.secondiRim + 1
+                            .onReceive(timer) { _ in
+                                if !self.pause{
+                                    if self.minutiRimantenti < 15{
+                                        if self.secondiRim == 59 {
+                                            self.minutiRimantenti = self.minutiRimantenti + 1
+                                            self.secondiRim = 0
+                                        }else{
+                                            self.secondiRim = self.secondiRim + 1
+                                        }
+                                        
+                                    }
                                 }
-                                
-                            }
-                        }
                         }
                         Text("min")
-                        .foregroundColor(Color(.sRGB, red: 243/255, green: 145/255, blue: 0/255))
-                        .font(.custom("Avenir", size: 15))
-                        .font(.headline)
-                        .fontWeight(.bold)
-                        .foregroundColor(Color.red)
-                        .padding(.bottom, 28.0)
+                            .foregroundColor(Color(.sRGB, red: 243/255, green: 145/255, blue: 0/255))
+                            .font(.custom("Avenir", size: 15))
+                            .font(.headline)
+                            .fontWeight(.bold)
+                            .foregroundColor(Color.red)
+                            .padding(.bottom, 28.0)
                         
                     }
                     .frame(width: 200.0)
@@ -83,51 +85,63 @@ struct ChallengeStartedView: View {
                             .fontWeight(.bold)
                             .foregroundColor(Color.red)
                             .padding(.bottom, 28.0)
-    
+                        
                     }
                     Spacer()
+                }
+                VStack{
+                    HStack{
+                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+                        
+                    Image(systemName: "multiply")}
+                        
+                        Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+                        Image(systemName: "multiply")}
                 }
                 HStack{
                     Button(action: {
                         if self.pause{
                             self.pause = false
-                            
                         }else {
                             self.pause = true
-                            
                         }
                     }) {
-                        if self.pause{
-                            Image(systemName: "play")
+                        Circle()
+                            .frame(width: 70, height: 70)
+                            .foregroundColor(Color(.sRGB, red: 34/255, green: 34/255, blue: 35/255))
+                            .overlay(
+                                Image(systemName: pause ? "pause": "play"))
+                    }.frame(width: 50, height: 50)
+                        .padding()
                     
-                        }else{
-                            Image(systemName: "pause")
-                            
-                        }
-                        
-                    }
                     Button(action: {
                     }) {
-                        Image(systemName: "checkmark")
-                            .foregroundColor(.blue)
-                    }
+                        Circle()
+                            .frame(width: 70, height: 70)
+                            .foregroundColor(Color(.sRGB, red: 243/255, green: 145/255, blue: 0/255))
+                            .overlay(
+                                Image(systemName: "checkmark")
+                                    .foregroundColor(.white))
+                    }.frame(width: 70, height: 70)
                 }
-            }
+                }
+                
+        }
             Spacer()
             //Page Control
-                HStack{
-                    Circle()
-                        .frame(width: 8, height: 8)
-                        .foregroundColor(currentPage==1 ? Color.gray:Color.white)
-                    Circle()
-                        .frame(width: 8, height: 8)
-                        .foregroundColor(currentPage==1 ? Color.white:Color.gray)
-                    }
-                 Spacer()
+            HStack{
+                Circle()
+                    .frame(width: 8, height: 8)
+                    .foregroundColor(currentPage==1 ? Color.gray:Color.white)
+                Circle()
+                    .frame(width: 8, height: 8)
+                    .foregroundColor(currentPage==1 ? Color.white:Color.gray)
+            }
+            Spacer()
         }
             
         .padding(.top, 33.0)
-//        .frame(height: 210.0)
+            //        .frame(height: 210.0)
             .frame(height: 232.0)
             .onAppear(perform: start)
         
@@ -142,7 +156,7 @@ struct ChallengeStartedView: View {
     func autorizeHealthKit() {
         let healthKitTypes: Set = [
             HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.heartRate)!, HKObjectType.quantityType(forIdentifier: .stepCount)!]
-
+        
         healthStore.requestAuthorization(toShare: healthKitTypes, read: healthKitTypes) { _, _ in }
     }
     
@@ -155,12 +169,12 @@ struct ChallengeStartedView: View {
             query, samples, deletedObjects, queryAnchor, error in
             
             // 3
-        guard let samples = samples as? [HKQuantitySample] else {
-            return
-        }
+            guard let samples = samples as? [HKQuantitySample] else {
+                return
+            }
             
-        self.process(samples, type: quantityTypeIdentifier)
-
+            self.process(samples, type: quantityTypeIdentifier)
+            
         }
         
         // 4
@@ -185,7 +199,7 @@ struct ChallengeStartedView: View {
                     calcolaMedia(val: valori)
                 }
             }
-          
+            
         }
     }
     func calcolaMedia(val: [Int]){
@@ -195,16 +209,16 @@ struct ChallengeStartedView: View {
             media = media + i
         }
         media = media / val.count
-//        print(media)
+        //        print(media)
     }
-   
+    
 }
 
 struct PagerManager<Content: View>: View {
     let pageCount: Int
     @Binding var currentIndex: Int
     let content: Content
-
+    
     //Set the initial values for the variables
     init(pageCount: Int, currentIndex: Binding<Int>, @ViewBuilder content: () -> Content) {
         self.pageCount = pageCount
@@ -213,7 +227,7 @@ struct PagerManager<Content: View>: View {
     }
     
     @GestureState private var translation: CGFloat = 0
-
+    
     //Set the animation
     var body: some View {
         GeometryReader { geometry in
@@ -223,7 +237,7 @@ struct PagerManager<Content: View>: View {
             .frame(width: geometry.size.width, alignment: .leading)
             .offset(x: -CGFloat(self.currentIndex) * geometry.size.width)
             .offset(x: self.translation)
-
+                
                 
             .gesture(
                 DragGesture().updating(self.$translation) { value, state, _ in
