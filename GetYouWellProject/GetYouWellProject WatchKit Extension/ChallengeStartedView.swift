@@ -110,12 +110,11 @@ struct ChallengeStartedView: View {
                             .frame(width: 70, height: 70)
                             .foregroundColor(Color(.sRGB, red: 34/255, green: 34/255, blue: 35/255))
                             .overlay(
-                                Image(systemName: pause ? "pause": "play"))
+                                Image(systemName: pause ? "play": "pause"))
                     }.frame(width: 50, height: 50)
                         .padding()
                     
-                    Button(action: {
-                    }) {
+                    NavigationLink(destination: EndChallengeView(media: 6, tempo: [7,9])){
                         Circle()
                             .frame(width: 70, height: 70)
                             .foregroundColor(Color(.sRGB, red: 243/255, green: 145/255, blue: 0/255))
@@ -123,6 +122,7 @@ struct ChallengeStartedView: View {
                                 Image(systemName: "checkmark")
                                     .foregroundColor(.white))
                     }.frame(width: 70, height: 70)
+                    
                 }
                 }
                 

@@ -30,21 +30,14 @@ struct SubEndChallengeView: View {
     @State var media : Int
     @State var tempo : [Int]
     func aggiungi(){
-//        utente.first!.punteggio = utente.first!.punteggio + 100
-//        print("\(utente.first!.punteggio)")
-//        do{
-//            try managedObjectContext.save()
-//        }catch{
-//            print("Error")
-//        }
-          let user = Utente(context: managedObjectContext)
-        user.punteggio = 0
+        utente.first!.punteggio = utente.first!.punteggio + 100
+        print("\(utente.first!.punteggio)")
         do{
             try managedObjectContext.save()
-                
-            }catch{
+        }catch{
             print("Error")
-            }
+        }
+         
     }
     var body: some View {
         VStack{
