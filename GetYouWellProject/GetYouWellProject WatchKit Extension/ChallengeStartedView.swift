@@ -19,6 +19,9 @@ struct ChallengeStartedView: View {
     @State private var currentPage = 0
     @State var minutiRimantenti = 0
     @State var secondiRim = 0
+    @State var pause = false
+    @State var stop = false
+    
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     var body: some View {
@@ -30,9 +33,10 @@ struct ChallengeStartedView: View {
                         .fontWeight(.regular)
                         .font(.system(size: 30))
                         .multilineTextAlignment(.leading)
-                        .padding()
+                            .padding()
                         .onReceive(timer) { _ in
-                            if self.minutiRimantenti < 1{
+                            if !self.pause{
+                            if self.minutiRimantenti < 15{
                                 if self.secondiRim == 59 {
                                     self.minutiRimantenti = self.minutiRimantenti + 1
                                     self.secondiRim = 0
@@ -42,14 +46,17 @@ struct ChallengeStartedView: View {
                                 
                             }
                         }
+                        }
                         Text("min")
-                        .font(.system(size: 12))
+                        .foregroundColor(Color(.sRGB, red: 243/255, green: 145/255, blue: 0/255))
+                        .font(.custom("Avenir", size: 15))
                         .font(.headline)
                         .fontWeight(.bold)
                         .foregroundColor(Color.red)
                         .padding(.bottom, 28.0)
                         
                     }
+                    .frame(width: 200.0)
                     HStack{
                         Text("\(value)")
                             .fontWeight(.regular)
@@ -78,32 +85,36 @@ struct ChallengeStartedView: View {
                             .padding(.bottom, 28.0)
     
                     }
-                Spacer()
+                    Spacer()
                 }
-                
-                Text("Second page")
+                HStack{
+                    Button(action: {
+                        if self.pause{
+                            self.pause = false
+                            
+                        }else {
+                            self.pause = true
+                            
+                        }
+                    }) {
+                        if self.pause{
+                            Image(systemName: "play")
+                    
+                        }else{
+                            Image(systemName: "pause")
+                            
+                        }
+                        
+                    }
+                    Button(action: {
+                    }) {
+                        Image(systemName: "checkmark")
+                            .foregroundColor(.blue)
+                    }
+                }
             }
             Spacer()
-                //                    HStack{
-                //                        Text("❤️")
-                //                            .font(.system(size: 50))
-                //                        Spacer()
-                //                    }
-                //
-                //                    HStack{
-                //                        Text("\(value)")
-                //                            .fontWeight(.regular)
-                //                            .font(.system(size: 70))
-                //                        Text("BPM")
-                //                            .font(.headline)
-                //                            .fontWeight(.bold)
-                //                            .foregroundColor(Color.red)
-                //                            .padding(.bottom, 28.0)
-                //
-                //                        Spacer()
-                //
-                //                    }
-                //Page Control
+            //Page Control
                 HStack{
                     Circle()
                         .frame(width: 8, height: 8)
