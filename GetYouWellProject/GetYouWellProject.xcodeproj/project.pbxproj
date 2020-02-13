@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2CCDD4BC23ED827800D90090 /* ImpostaziniView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDD4BB23ED827800D90090 /* ImpostaziniView.swift */; };
+		5E41E49C23F54A3400B2F835 /* EndChallengeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E41E49B23F54A3400B2F835 /* EndChallengeView.swift */; };
+		5E41E49E23F54C6D00B2F835 /* Utente.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E41E49D23F54C6D00B2F835 /* Utente.swift */; };
 		5EB698E523F3F1450047FF8C /* ChallengeStartedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB698E423F3F1450047FF8C /* ChallengeStartedView.swift */; };
 		5EE1466923EC4F7D000C3862 /* GetYouWellProject WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 5EE1466823EC4F7D000C3862 /* GetYouWellProject WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5EE1466F23EC4F7D000C3862 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EE1466D23EC4F7D000C3862 /* Interface.storyboard */; };
@@ -75,6 +77,8 @@
 
 /* Begin PBXFileReference section */
 		2CCDD4BB23ED827800D90090 /* ImpostaziniView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpostaziniView.swift; sourceTree = "<group>"; };
+		5E41E49B23F54A3400B2F835 /* EndChallengeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndChallengeView.swift; sourceTree = "<group>"; };
+		5E41E49D23F54C6D00B2F835 /* Utente.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utente.swift; sourceTree = "<group>"; };
 		5EB698E423F3F1450047FF8C /* ChallengeStartedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeStartedView.swift; sourceTree = "<group>"; };
 		5EE1466423EC4F7D000C3862 /* GetYouWellProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GetYouWellProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EE1466823EC4F7D000C3862 /* GetYouWellProject WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GetYouWellProject WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -155,6 +159,8 @@
 				2CCDD4BB23ED827800D90090 /* ImpostaziniView.swift */,
 				5EE1469A23EC5000000C3862 /* SettingDayView.swift */,
 				5EE1469C23EC5013000C3862 /* OrarioView.swift */,
+				5E41E49B23F54A3400B2F835 /* EndChallengeView.swift */,
+				5E41E49D23F54C6D00B2F835 /* Utente.swift */,
 				5EE146A523EC585D000C3862 /* StartChallengeView.swift */,
 				5EE146A923EC8E1B000C3862 /* SfidaFisicaView.swift */,
 				5EE1467E23EC4F7D000C3862 /* HostingController.swift */,
@@ -322,11 +328,13 @@
 				5EE1469D23EC5013000C3862 /* OrarioView.swift in Sources */,
 				5EE146A623EC585D000C3862 /* StartChallengeView.swift in Sources */,
 				5EE146A423EC510E000C3862 /* Orario.swift in Sources */,
+				5E41E49C23F54A3400B2F835 /* EndChallengeView.swift in Sources */,
 				5EE1467D23EC4F7D000C3862 /* ContentView.swift in Sources */,
 				2CCDD4BC23ED827800D90090 /* ImpostaziniView.swift in Sources */,
 				5EE1468323EC4F7D000C3862 /* NotificationController.swift in Sources */,
 				5EE1468123EC4F7D000C3862 /* ExtensionDelegate.swift in Sources */,
 				5EE146AA23EC8E1B000C3862 /* SfidaFisicaView.swift in Sources */,
+				5E41E49E23F54C6D00B2F835 /* Utente.swift in Sources */,
 				5EE1469B23EC5000000C3862 /* SettingDayView.swift in Sources */,
 				5EE146A823EC8D7B000C3862 /* SfidaPercorsoView.swift in Sources */,
 				5EE146A023EC508D000C3862 /* GetYouWellProject.xcdatamodeld in Sources */,
