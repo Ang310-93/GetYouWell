@@ -14,8 +14,12 @@
         <attribute name="sabato" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="venerdi" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
     </entity>
+    <entity name="Utente" representedClassName="Utente" syncable="YES" codeGenerationType="class">
+        <attribute name="punteggio" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
     <elements>
-        <element name="Settimana" positionX="-63" positionY="-18" width="128" height="148"/>
         <element name="Orario" positionX="-54" positionY="45" width="128" height="88"/>
+        <element name="Settimana" positionX="-63" positionY="-18" width="128" height="148"/>
+        <element name="Utente" positionX="-54" positionY="36" width="128" height="58"/>
     </elements>
 </model>
