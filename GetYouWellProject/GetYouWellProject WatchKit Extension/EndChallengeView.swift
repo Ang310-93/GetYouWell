@@ -40,14 +40,22 @@ struct SubEndChallengeView: View {
          
     }
     var body: some View {
-        VStack{
+        VStack(alignment: .leading, spacing: 5){
             Text("MEDIA BATTITI: \(media)")
+            
+            
             Text("Tempo impiegato:\n\(self.tempo[0]):\(self.tempo[1])")
+            
             Text("Punti guadagnati:\n100")
+                .fontWeight(.bold)
+            
             NavigationLink(destination: ContentView()){
-                Text("Torna alla home")
-                }
+                Text("Torna alla home" .uppercased())
+                .foregroundColor(Color(.sRGB, red: 243/255, green: 145/255, blue: 0/255))
+                .fontWeight(.bold)
             }
+            }.font(.custom("Avenir", size: 15))
+        .padding()
     }
 }
 

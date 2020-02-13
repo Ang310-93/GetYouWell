@@ -18,16 +18,15 @@ struct SfidaPercorsoView: View {
             VStack{
                 Text("Il percorso di oggi prevede che tu vada in questo luogo")
 //                  .foregroundColor(Color(.sRGB, red: 243/255, green: 145/255, blue: 0/255))
-                  .font(.custom("Avenir", size: 10))
-                  .fontWeight(.bold)
+                  .font(.custom("Avenir", size: 15))
+                  
                   .padding()
                   .padding(.top, -10)
                 .padding(.leading, -7)
                     
-                Text(luogo.0)
-                
+                Text(luogo.0 .uppercased())
                 .foregroundColor(Color(.sRGB, red: 243/255, green: 145/255, blue: 0/255))
-                .font(.custom("Avenir", size: 17))
+                .font(.custom("Avenir", size: 15))
                 .fontWeight(.bold)
                     .padding()
                 Image(luogo.1)
@@ -40,7 +39,9 @@ struct SfidaPercorsoView: View {
                     Text("START")
                     .foregroundColor(Color(.sRGB, red: 243/255, green: 145/255, blue: 0/255))
                     .font(.custom("Avenir", size: 15))
-                }
+                    .fontWeight(.bold)
+                    
+                }.padding()
             }
             }
         .onAppear(perform: selectPlace)
