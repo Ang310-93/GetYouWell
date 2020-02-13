@@ -29,16 +29,8 @@ struct SubEndChallengeView: View {
     @FetchRequest(entity: Utente.entity(),sortDescriptors: [NSSortDescriptor(keyPath: \Utente.punteggio, ascending: true)]) var utente : FetchedResults<Utente>
     @State var media : Int
     @State var tempo : [Int]
-    func aggiungi(){
-        utente.first!.punteggio = utente.first!.punteggio + 100
-        print("\(utente.first!.punteggio)")
-        do{
-            try managedObjectContext.save()
-        }catch{
-            print("Error")
-        }
-         
-    }
+    @State var punti = ""
+   
     var body: some View {
         VStack(alignment: .leading, spacing: 5){
             Text("MEDIA BATTITI: \(media)")
@@ -46,16 +38,32 @@ struct SubEndChallengeView: View {
             
             Text("Tempo impiegato:\n\(self.tempo[0]):\(self.tempo[1])")
             
-            Text("Punti guadagnati:\n100")
+            Text(punti)
                 .fontWeight(.bold)
             
             NavigationLink(destination: ContentView()){
                 Text("Torna alla home" .uppercased())
                 .foregroundColor(Color(.sRGB, red: 243/255, green: 145/255, blue: 0/255))
                 .fontWeight(.bold)
-            }
+                }
             }.font(.custom("Avenir", size: 15))
         .padding()
+            .onAppear(perform: aggiungi)
+    }
+    func aggiungi(){
+        if tempo[0] > 15 && tempo[1] != 0 && tempo[0] != 15{
+             utente.first?.punteggio = utente.first!.punteggio + 50
+            punti = "Purtroppo hai guadagnato solo 50 punti!"
+        } else {
+            utente.first?.punteggio = utente.first!.punteggio + 100
+            punti = "Complimenti hai guadagnato 100 punti!"
+        }
+        print("\(utente.first!.punteggio)")
+        do{
+            try managedObjectContext.save()
+        }catch{
+            print("Error")
+        }
     }
 }
 

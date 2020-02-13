@@ -71,19 +71,19 @@ struct ChallengeStartedView: View {
                     }.padding(.top, -20)
                     
                     
-                    HStack{
-                        
-                        Text("\(media)")
-                            .foregroundColor(Color(.sRGB, red: 243/255, green: 145/255, blue: 0/255))
-                            .font(.custom("Avenir", size: 30))
-                            .font(.headline)
-                            .fontWeight(.black)
-                        Image(systemName: "waveform.path.ecg")
-                            .resizable()
-                            .frame(width: 20, height: 20)
-                            .foregroundColor(Color(.sRGB, red: 243/255, green: 145/255, blue: 0/255))
-                        
-                    }.padding(.top, -20)
+//                    HStack{
+//
+//                        Text("\(media)")
+//                            .foregroundColor(Color(.sRGB, red: 243/255, green: 145/255, blue: 0/255))
+//                            .font(.custom("Avenir", size: 30))
+//                            .font(.headline)
+//                            .fontWeight(.black)
+//                        Image(systemName: "waveform.path.ecg")
+//                            .resizable()
+//                            .frame(width: 20, height: 20)
+//                            .foregroundColor(Color(.sRGB, red: 243/255, green: 145/255, blue: 0/255))
+//
+//                    }.padding(.top, -20)
                     Spacer()
                 }.padding(.top, 20)
                 VStack(spacing: 0){
@@ -101,7 +101,7 @@ struct ChallengeStartedView: View {
                         .padding(.leading, 5)
                     
                     HStack{
-                        Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+                        NavigationLink(destination: FailView()) {
                             Circle()
                                 .frame(width: 70, height: 70)
                                 .foregroundColor(Color(.sRGB, red: 150/255, green: 0/255, blue: 0/255))

@@ -15,7 +15,7 @@
         <attribute name="venerdi" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
     </entity>
     <entity name="Utente" representedClassName="Utente" syncable="YES" codeGenerationType="class">
-        <attribute name="punteggio" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="punteggio" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
     <elements>
         <element name="Orario" positionX="-54" positionY="45" width="128" height="88"/>
