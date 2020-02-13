@@ -29,13 +29,12 @@ struct ChallengeStartedView: View {
     var body: some View {
         VStack{
             PagerManager(pageCount: 2, currentIndex: $currentPage) {
-                VStack{
+                VStack(alignment: .leading){
                     HStack{
                         Text("\(minutiRimantenti) : \(secondiRim)")
-                            .fontWeight(.regular)
-                            .font(.system(size: 30))
-                            .multilineTextAlignment(.leading)
-                            .padding()
+                            .foregroundColor(Color(.sRGB, red: 243/255, green: 145/255, blue: 0/255))
+                            .fontWeight(.black)
+                            .font(.custom("Avenir", size: 30))
                             .onReceive(timer) { _ in
                                 if !self.pause{
                                     if self.minutiRimantenti < 15{
@@ -53,55 +52,53 @@ struct ChallengeStartedView: View {
                             .foregroundColor(Color(.sRGB, red: 243/255, green: 145/255, blue: 0/255))
                             .font(.custom("Avenir", size: 15))
                             .font(.headline)
-                            .fontWeight(.bold)
+                            .fontWeight(.light)
                             .foregroundColor(Color.red)
-                            .padding(.bottom, 28.0)
+                            .padding(.bottom, -10)
                         
                     }
-                    .frame(width: 200.0)
                     HStack{
                         Text("\(value)")
-                            .fontWeight(.regular)
-                            .font(.system(size: 30))
-                            .multilineTextAlignment(.leading)
-                            .padding()
-                        Text("BPM❤️")
-                            .font(.system(size: 12))
+                            .foregroundColor(Color(.sRGB, red: 243/255, green: 145/255, blue: 0/255))
+                            .font(.custom("Avenir", size: 30))
                             .font(.headline)
-                            .fontWeight(.bold)
-                            .foregroundColor(Color.red)
-                            .padding(.bottom, 28.0)
+                            .fontWeight(.black)
                         
-                    }
+                        Image(systemName: "heart")
+                            .resizable()
+                            .frame(width: 20, height: 20)
+                            .foregroundColor(Color(.sRGB, red: 243/255, green: 145/255, blue: 0/255))
+                    }.padding(.top, -20)
+                    
+                    
                     HStack{
                         
                         Text("\(media)")
-                            .fontWeight(.regular)
-                            .font(.system(size: 30))
-                            .padding()
-                        Text("Passi")
-                            .font(.system(size: 12))
+                            .foregroundColor(Color(.sRGB, red: 243/255, green: 145/255, blue: 0/255))
+                            .font(.custom("Avenir", size: 30))
                             .font(.headline)
-                            .fontWeight(.bold)
-                            .foregroundColor(Color.red)
-                            .padding(.bottom, 28.0)
+                            .fontWeight(.black)
+                        Image(systemName: "waveform.path.ecg")
+                            .resizable()
+                            .frame(width: 20, height: 20)
+                            .foregroundColor(Color(.sRGB, red: 243/255, green: 145/255, blue: 0/255))
                         
-                    }
+                    }.padding(.top, -20)
                     Spacer()
-                }
+                }.padding(.top, 20)
                 VStack(spacing: 0){
                     
-                        Button(action: {
-                            if self.pause{
-                                self.pause = false
-                            }else {
-                                self.pause = true
-                            }
-                        }) {
-                                    Image(systemName: pause ? "play": "pause")
-                            }.frame(width: 145)
-                            .padding()
-                            .padding(.leading, 5)
+                    Button(action: {
+                        if self.pause{
+                            self.pause = false
+                        }else {
+                            self.pause = true
+                        }
+                    }) {
+                        Image(systemName: pause ? "play": "pause")
+                    }.frame(width: 145)
+                        .padding()
+                        .padding(.leading, 5)
                     
                     HStack{
                         Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
