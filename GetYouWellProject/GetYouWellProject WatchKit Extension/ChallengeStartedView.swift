@@ -89,44 +89,43 @@ struct ChallengeStartedView: View {
                     }
                     Spacer()
                 }
-                VStack{
+                VStack(spacing: 0){
+                    
+                        Button(action: {
+                            if self.pause{
+                                self.pause = false
+                            }else {
+                                self.pause = true
+                            }
+                        }) {
+                                    Image(systemName: pause ? "play": "pause")
+                            }.frame(width: 145)
+                            .padding()
+                            .padding(.leading, 5)
+                    
                     HStack{
-                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-                        
-                    Image(systemName: "multiply")}
-                        
                         Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-                        Image(systemName: "multiply")}
-                }
-                HStack{
-                    Button(action: {
-                        if self.pause{
-                            self.pause = false
-                        }else {
-                            self.pause = true
-                        }
-                    }) {
-                        Circle()
-                            .frame(width: 70, height: 70)
-                            .foregroundColor(Color(.sRGB, red: 34/255, green: 34/255, blue: 35/255))
-                            .overlay(
-                                Image(systemName: pause ? "play": "pause"))
-                    }.frame(width: 50, height: 50)
-                        .padding()
-                    
-                    NavigationLink(destination: EndChallengeView(media: 6, tempo: [7,9])){
-                        Circle()
-                            .frame(width: 70, height: 70)
-                            .foregroundColor(Color(.sRGB, red: 243/255, green: 145/255, blue: 0/255))
-                            .overlay(
-                                Image(systemName: "checkmark")
-                                    .foregroundColor(.white))
-                    }.frame(width: 70, height: 70)
-                    
-                }
-                }
+                            Circle()
+                                .frame(width: 70, height: 70)
+                                .foregroundColor(Color(.sRGB, red: 150/255, green: 0/255, blue: 0/255))
+                                .overlay(
+                                    Image(systemName: "stop"))
+                        }.frame(width: 60, height: 60)
+                            .padding()
+                        
+                        NavigationLink(destination: EndChallengeView(media: 6, tempo: [7,9])){
+                            Circle()
+                                .frame(width: 70, height: 70)
+                                .foregroundColor(Color(.sRGB, red: 243/255, green: 145/255, blue: 0/255))
+                                .overlay(
+                                    Image(systemName: "checkmark")
+                                        .foregroundColor(.white))
+                        }.frame(width: 60, height: 60)
+                        
+                    }
+                }.padding(.leading, -10)
                 
-        }
+            }
             Spacer()
             //Page Control
             HStack{
