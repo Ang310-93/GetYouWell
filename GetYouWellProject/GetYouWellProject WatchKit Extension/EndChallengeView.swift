@@ -32,24 +32,27 @@ struct SubEndChallengeView: View {
     @State var punti = ""
    
     var body: some View {
-        VStack(alignment: .leading, spacing: 5){
-            Text("MEDIA BATTITI: \(media)")
-            
-            
-            Text("Tempo impiegato:\n\(self.tempo[0]):\(self.tempo[1])")
-            
+        ScrollView{  VStack(alignment: .leading, spacing: 5){
+            Text("Media battiti:\n\(media)")
+            .fontWeight(.bold)
+            .font(.custom("Avenir", size: 15))
+            Text("Tempo impiegato:\n\(self.tempo[0]) minuti e \(self.tempo[1]) secondi")
+            .fontWeight(.bold)
+            .font(.custom("Avenir", size: 15))
             Text(punti)
                 .fontWeight(.bold)
+            .font(.custom("Avenir", size: 15))
             
             NavigationLink(destination: ContentView()){
                 Text("Torna alla home" .uppercased())
                 .foregroundColor(Color(.sRGB, red: 243/255, green: 145/255, blue: 0/255))
                 .fontWeight(.bold)
                 }
-            }.font(.custom("Avenir", size: 15))
+            }.font(.custom("Avenir", size: 12))
         .padding()
+            .frame(width: 160.0)
             .onAppear(perform: aggiungi)
-    }
+        }}
     func aggiungi(){
         if tempo[0] > 15 && tempo[1] != 0 && tempo[0] != 15{
              utente.first?.punteggio = utente.first!.punteggio + 50

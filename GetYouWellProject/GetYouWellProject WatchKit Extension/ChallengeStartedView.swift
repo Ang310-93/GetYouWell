@@ -31,10 +31,13 @@ struct ChallengeStartedView: View {
             PagerManager(pageCount: 2, currentIndex: $currentPage) {
                 VStack(alignment: .leading){
                     HStack{
+                        
+                    
+                        
                         Text("\(minutiRimantenti) : \(secondiRim)")
                             .foregroundColor(Color(.sRGB, red: 243/255, green: 145/255, blue: 0/255))
                             .fontWeight(.black)
-                            .font(.custom("Avenir", size: 30))
+                            .font(.custom("Avenir", size: 40))
                             .onReceive(timer) { _ in
                                 if !self.pause{
                                     if self.minutiRimantenti < 15{
@@ -50,7 +53,7 @@ struct ChallengeStartedView: View {
                         }
                         Text("min")
                             .foregroundColor(Color(.sRGB, red: 243/255, green: 145/255, blue: 0/255))
-                            .font(.custom("Avenir", size: 15))
+                            .font(.custom("Avenir", size: 20))
                             .font(.headline)
                             .fontWeight(.light)
                             .foregroundColor(Color.red)
@@ -60,7 +63,7 @@ struct ChallengeStartedView: View {
                     HStack{
                         Text("\(value)")
                             .foregroundColor(Color(.sRGB, red: 243/255, green: 145/255, blue: 0/255))
-                            .font(.custom("Avenir", size: 30))
+                            .font(.custom("Avenir", size: 40))
                             .font(.headline)
                             .fontWeight(.black)
                         
@@ -87,7 +90,6 @@ struct ChallengeStartedView: View {
                     Spacer()
                 }.padding(.top, 20)
                 VStack(spacing: 0){
-                    
                     Button(action: {
                         if self.pause{
                             self.pause = false
@@ -110,7 +112,7 @@ struct ChallengeStartedView: View {
                         }.frame(width: 60, height: 60)
                             .padding()
                         
-                        NavigationLink(destination: EndChallengeView(media: 6, tempo: [7,9])){
+                        NavigationLink(destination: EndChallengeView(media: self.media, tempo: [self.minutiRimantenti,self.secondiRim])){
                             Circle()
                                 .frame(width: 70, height: 70)
                                 .foregroundColor(Color(.sRGB, red: 243/255, green: 145/255, blue: 0/255))
